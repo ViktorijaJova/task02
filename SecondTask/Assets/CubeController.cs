@@ -28,18 +28,22 @@ namespace Assets
                 button.gameObject.SetActive(true);
             }
             }
-
-             void Update()
+      
+        private bool move;
+        void Update()
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
+                move = true;
+            }
+
+            if (move)
+            {
                 Vector3 position = this.transform.position;
-                position.z++;
+                position.z += 0.01f;
                 this.transform.position = position;
             }
         }
-
-   
         void Restart()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
